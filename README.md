@@ -5,7 +5,7 @@ Data on three types of relationships has been shared with the CFDE Data Distille
 
 1. Gene-metabolite relationships: MW database tables based on KEGG and other resources
 
-Of all the human genes, the one’s catalyzing various metabolic reactions were identified and then the related metabolites were identified by querying various MW database tables. The resulting table was further processed using the R script . The user may have to set the path or working directory.
+Of all the human genes, the one’s catalyzing various metabolic reactions were identified and then the related metabolites were identified by querying various MW database tables.  
 
 2. Disease-metabolite relationships: A paper based on HMDB data; https://pubmed.ncbi.nlm.nih.gov/32426349/
 
@@ -15,6 +15,6 @@ Based on the paper https://pubmed.ncbi.nlm.nih.gov/32426349/ (which used HMDB da
 
 MW database tables were queried to identify which cell/tissue/anatomy (“sample source” in MW terminology) produced which metabolites across different studies: this was indirectly achieved by identifying the sample_source and the metabolites measured (listed) for all the public studies.
 
+The resulting tables were further processed using custom R script (to be made available upon publication of a paper) to generate the list of nodes and edges in suitable format for ingestion into a neo4j database.
 
-Briefly, the following approach was followed to generate the tables.
-
+For any questions, please contact mano_at_sdsc_dot_edu.
