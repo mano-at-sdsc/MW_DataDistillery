@@ -1,9 +1,9 @@
 # MW_DataDistillery
-Information related the Metabolomics Workbench data (and other relevant data) shared with the CFDE Data Distillery Partnership
+Information related to the Metabolomics Workbench data (and other relevant data) shared with the CFDE Data Distillery Partnership
 
 Data on three types of relationships has been shared with the CFDE Data Distillery Partnership. Purpose is to understand what metabolites may be regulated by various genes, which cell or tissue produce them and for what diseases they might be relevant. The procedure to generate the tables is briefly described below.
 
-1. Gene-metabolite relationships: MW database tables based on KEGG and other resources
+1. Gene-metabolite relationships: Using MW database tables based on KEGG and other resources
 
 Of all the human genes, the ones catalyzing various metabolic reactions were identified and then the related metabolites were identified by querying various MW database tables through the postgres sql (psql) query:
 
@@ -18,7 +18,7 @@ ORDER BY mgpgk_kgrm.gene_id, mgpgk_kgrm.kegg_id, rf_mb.pubchem_cid, rf_mb.refmet
 TO gene_metabolite_generic_KEGG_dbxrefs_refmet.tsv WITH DELIMITER E'\t' NULL '' CSV HEADER;
 ```
 
-2. Disease-metabolite relationships: A paper based on HMDB data; https://pubmed.ncbi.nlm.nih.gov/32426349/
+2. Disease-metabolite relationships: Based on a paper on HMDB data (https://pubmed.ncbi.nlm.nih.gov/32426349/)
 
 Based on the paper https://pubmed.ncbi.nlm.nih.gov/32426349/ (which used HMDB data), metabolite names were harmonized using MW REFMET. The postgres sql (psql) query used on MW DB was:
 
@@ -32,7 +32,7 @@ TO met_dis_PMID_32426349_nameHMDBkeggpc.tsv WITH DELIMITER E'\t' NULL '' CSV HEA
 ```
 The resulting table was further cross-checked and updated as necessary in MS Excel. DOID and HPO IDs and UMLS IDs were obtained through cross-reference/search in respective resources using custom R scripts to generate the nodes and edges files. 
 
-3. Cell-metabolite relationships: MW database tables for data submitted to NMDR
+3. Cell-metabolite relationships: Based on MW database tables for data submitted to NMDR
 
 MW database tables were queried to identify which cell/tissue/anatomy (“sample source” in MW terminology) produced which metabolites across different studies: this was indirectly achieved by identifying the sample_source and the metabolites measured (listed) for all the public studies using the following psql query.
 
