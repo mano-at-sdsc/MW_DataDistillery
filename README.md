@@ -7,6 +7,7 @@ Data on three types of relationships has been shared with the CFDE Data Distille
 
 Of all the human genes, the ones catalyzing various metabolic reactions were identified and then the related metabolites were identified by querying various MW database tables through the postgres sql (psql) query:
 
+```postgres
 \COPY (SELECT DISTINCT mgpgk_kgrm.gene_id, mgp_gene.gene_symbol, mgpgk_kgrm.kegg_id, rf_mb.regno, rf_mb.pubchem_cid, rf_mb.drugbank_id, rf_mb.hmdb_id, rf_mb.refmet_name as refmet_name, mgpgk_kgrm.reactant_name as kegg_name from
 ( (SELECT DISTINCT rf.regno, rf.pubchem_cid, mb.kegg_id, mb.drugbank_id, mb.hmdb_id, mb.refmet_name FROM (refmet rf INNER JOIN mb_names mb ON (rf.regno = mb.regno AND rf.pubchem_cid = mb.pubchem_cid AND rf.name = mb.refmet_name AND (mb.kegg_id IS NOT NULL) ))) rf_mb INNER JOIN
 (mgp_gene INNER JOIN
@@ -15,6 +16,7 @@ ON mgpgk_kgrm.gene_id = mgp_gene.gene_id)
 ON mgpgk_kgrm.kegg_id = rf_mb.kegg_id)
 ORDER BY mgpgk_kgrm.gene_id, mgpgk_kgrm.kegg_id, rf_mb.pubchem_cid, rf_mb.refmet_name, mgpgk_kgrm.reactant_name)
 TO gene_metabolite_generic_KEGG_dbxrefs_refmet.tsv WITH DELIMITER E'\t' NULL '' CSV HEADER;
+```
 
 2. Disease-metabolite relationships: A paper based on HMDB data; https://pubmed.ncbi.nlm.nih.gov/32426349/
 
