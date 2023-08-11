@@ -7,7 +7,7 @@ Data on three types of relationships has been shared with the CFDE Data Distille
 
 Of all the human genes, the one’s catalyzing various metabolic reactions were identified and then the related metabolites were identified by querying various MW database tables. The resulting table was further processed using the R script .
 
-2. Disease-metabolite relationships: A paper based on HMDB data; https://pubmed.ncbi.nlm.nih.gov/32426349/)
+2. Disease-metabolite relationships: A paper based on HMDB data; https://pubmed.ncbi.nlm.nih.gov/32426349/
 
 Based on the paper https://pubmed.ncbi.nlm.nih.gov/32426349/ (which used HMDB data), metabolite names were harmonized using MW REFMET. DOID and HPO IDs and UMLS IDs were obtained through cross-reference/search in respective resources using custom R scripts. 
 
