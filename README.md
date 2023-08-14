@@ -51,6 +51,6 @@ ORDER BY ss.study_id, ss.source, rf_mb.regno, sm.refmet_name, rf_mb.pubchem_cid)
 TO MW_samplesource_metabolite_expanded_sm.tsv WITH DELIMITER E'\t' NULL '' CSV HEADER;
 ```
 
-The resulting tables were further processed using custom R script (to be made available upon publication of a paper) to generate the list of nodes and edges in suitable format for ingestion into a neo4j database.
+The resulting tables were further processed using custom R script (to be made available upon publication of a paper) to generate the list of nodes and edges in suitable format for ingestion into a neo4j database. In the R scripts, UMLS CUIs were obtained using UMLS REST API. Other IDs such as Uberon ID, DOID, etc., were extracted in these custom scripts using OBO files provided by the CFDE Ontology working group.
 
 For any questions, please contact mano_at_sdsc_dot_edu.
